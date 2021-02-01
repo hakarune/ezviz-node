@@ -1,7 +1,7 @@
 const Ezviz = require('./lib/Ezviz')
 
 module.exports = RED => {
-  // 获取开门记录
+  // Get door opening record
   RED.nodes.registerType('ezviz-ys7', class {
     constructor (config) {
       const node = this
@@ -11,17 +11,17 @@ module.exports = RED => {
         try {
           const bd = new Ezviz(node, ezviz)
 
-          // 合并值,未细想
-          for (const key in config) { if (config[key] != '' && config[key] != null) { data[key] = config[key] } }
+          // Combine the value, did not think about it
+          for (const key in config) {if (config[key] !='' && config[key] != null) {data[key] = config[key]}}
           data.payload = data.deviceSerial || data.payload
 
-          // 开门记录
+          // Door opening record
           const open = await bd.openList(data)
           data.payload = open
-          node.status({ text: `获取成功:${data._msgid}` })
+          node.status({ text: `Successful acquisition:${data._msgid}` })
           node.send([data, null])
         } catch (err) {
-          node.status({ text: err.message, fill: 'red', shape: 'ring' })
+          node.status({ text: err.message, fill:'red', shape:'ring' })
           node.warn(err)
           data.payload = {}
           data.error_msg = err.message
@@ -32,7 +32,7 @@ module.exports = RED => {
   })
 
   // captureImage
-  // 抓拍设备当前画面
+  // Capture the current screen of the device
   RED.nodes.registerType('ezviz-capture', class {
     constructor (config) {
       const node = this
@@ -42,16 +42,16 @@ module.exports = RED => {
         try {
           const bd = new Ezviz(node, ezviz)
 
-          // 合并值,未细想
-          for (const key in config) { if (config[key] != '' && config[key] != null) { data[key] = config[key] } }
+          // Combine the value, did not think about it
+          for (const key in config) {if (config[key] !='' && config[key] != null) {data[key] = config[key]}}
           data.payload = data.deviceSerial || data.payload
 
           const imagePath = await bd.captureImage(data)
           data.payload = imagePath
-          node.status({ text: `获取成功:${data._msgid}` })
+          node.status({ text: `Successful acquisition:${data._msgid}` })
           node.send([data, null])
         } catch (err) {
-          node.status({ text: err.message, fill: 'red', shape: 'ring' })
+          node.status({ text: err.message, fill:'red', shape:'ring' })
           node.warn(err)
           data.payload = {}
           data.error_msg = err.message
@@ -61,7 +61,7 @@ module.exports = RED => {
     }
   })
   // presetMove
-  // 云台移动到预置点
+  // PTZ moves to the preset point
   RED.nodes.registerType('ezviz-preset-move', class {
     constructor (config) {
       const node = this
@@ -71,16 +71,16 @@ module.exports = RED => {
         try {
           const bd = new Ezviz(node, ezviz)
 
-          // 合并值,未细想
-          for (const key in config) { if (config[key] != '' && config[key] != null) { data[key] = config[key] } }
+          // Combine the value, did not think about it
+          for (const key in config) {if (config[key] !='' && config[key] != null) {data[key] = config[key]}}
           data.payload = data.deviceSerial || data.payload
 
           const result = await bd.presetMove(data)
           data.payload = result
-          node.status({ text: `操作成功:${data._msgid}` })
+          node.status({ text: `Operation successful:${data._msgid}` })
           node.send([data, null])
         } catch (err) {
-          node.status({ text: err.message, fill: 'red', shape: 'ring' })
+          node.status({ text: err.message, fill:'red', shape:'ring' })
           node.warn(err)
           data.payload = {}
           data.error_msg = err.message
@@ -91,7 +91,7 @@ module.exports = RED => {
   })
 
   // cameraList
-  // 获取摄像头列表
+  // Get the camera list
   RED.nodes.registerType('ezviz-camera-list', class {
     constructor (config) {
       const node = this
@@ -101,16 +101,16 @@ module.exports = RED => {
         try {
           const bd = new Ezviz(node, ezviz)
 
-          // 合并值,未细想
-          for (const key in config) { if (config[key] != '' && config[key] != null) { data[key] = config[key] } }
+          // Combine the value, did not think about it
+          for (const key in config) {if (config[key] !='' && config[key] != null) {data[key] = config[key]}}
           data.payload = data.pageStart || data.payload
 
           const result = await bd.cameraList(data)
           data.payload = result
-          node.status({ text: `操作成功:${data._msgid}` })
+          node.status({ text: `Operation successful:${data._msgid}` })
           node.send([data, null])
         } catch (err) {
-          node.status({ text: err.message, fill: 'red', shape: 'ring' })
+          node.status({ text: err.message, fill:'red', shape:'ring' })
           node.warn(err)
           data.payload = {}
           data.error_msg = err.message
@@ -121,7 +121,7 @@ module.exports = RED => {
   })
 
   // sceneSwitchStatus
-  // 获取镜头遮蔽开关状态
+  // Get the status of the lens mask switch
   RED.nodes.registerType('ezviz-scene-switch-status', class {
     constructor (config) {
       const node = this
@@ -131,16 +131,16 @@ module.exports = RED => {
         try {
           const bd = new Ezviz(node, ezviz)
 
-          // 合并值,未细想
-          for (const key in config) { if (config[key] != '' && config[key] != null) { data[key] = config[key] } }
+          // Combine the value, did not think about it
+          for (const key in config) {if (config[key] !='' && config[key] != null) {data[key] = config[key]}}
           data.payload = data.deviceSerial || data.payload
 
           const result = await bd.sceneSwitchStatus(data)
           data.payload = result
-          node.status({ text: `操作成功:${data._msgid}` })
+          node.status({ text: `Operation successful:${data._msgid}` })
           node.send([data, null])
         } catch (err) {
-          node.status({ text: err.message, fill: 'red', shape: 'ring' })
+          node.status({ text: err.message, fill:'red', shape:'ring' })
           node.warn(err)
           data.payload = {}
           data.error_msg = err.message
@@ -151,34 +151,8 @@ module.exports = RED => {
   })
 
   // sceneSwitchSet
-  // 设置镜头遮蔽开关
+  // Set the lens shading switch
   RED.nodes.registerType('ezviz-scene-switch-set', class {
     constructor (config) {
       const node = this
       RED.nodes.createNode(node, config)
-      const ezviz = RED.nodes.getNode(config.ezviz)
-      node.on('input', async data => {
-        try {
-          const bd = new Ezviz(node, ezviz)
-
-          // 合并值,未细想
-          for (const key in config) { if (config[key] != '' && config[key] != null) { data[key] = config[key] } }
-          data.payload = data.deviceSerial || data.payload
-
-          const result = await bd.sceneSwitchSet(data)
-          data.payload = result
-          node.status({ text: `操作成功:${data._msgid}` })
-          node.send([data, null])
-        } catch (err) {
-          node.status({ text: err.message, fill: 'red', shape: 'ring' })
-          node.warn(err)
-          data.payload = {}
-          data.error_msg = err.message
-          node.send([null, data])
-        }
-      })
-    }
-  })
-
-
-}
