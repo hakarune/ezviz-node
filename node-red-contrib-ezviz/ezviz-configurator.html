@@ -1,43 +1,43 @@
 <script type="text/javascript">
 RED.nodes.registerType('ezviz-configurator', {
-  category: 'config',
+  category:'config',
   label () {
-    return this.name || '默认萤石配置'
+    return this.name ||'Default fluorite configuration'
   },
   defaults: {
     name: {
-      value: ''
+      value:''
     },
     client_id: {
-      value: ''
+      value:''
     },
     client_secret: {
-      value: ''
+      value:''
     }
   }
 })
 </script>
   <script type="text/x-red" data-template-name="ezviz-configurator">
     <div class="form-row">
-      <label for="node-config-input-name"><i class="icon-tag"></i>名称</label>
-      <input type="text" id="node-config-input-name" placeholder="默认萤石配置">
+      <label for="node-config-input-name"><i class="icon-tag"></i>Name</label>
+      <input type="text" id="node-config-input-name" placeholder="default fluorite configuration">
     </div>
     <div class="form-row">
       <label for="node-config-input-client_id"><i></i>appKey</label>
-      <input type="text" id="node-config-input-client_id" placeholder="萤石API Key">
+      <input type="text" id="node-config-input-client_id" placeholder="fluorite API Key">
     </div>
     <div class="form-row">
       <label for="node-config-input-client_secret"><i></i>appSecret</label>
-      <input type="text" id="node-config-input-client_secret" placeholder="萤石Secret Key">
+      <input type="text" id="node-config-input-client_secret" placeholder="fluoriteSecret Key">
     </div>
     <div class="form-row">
-      <label style="width: 100%;text-align: right;padding-right: 34px;box-sizing: border-box;" >
-        <a href="https://bbs.iobroker.cn/thread-195-1-1.html" target="_blank">手摸手图文教程 (ioBroker中国|智能家居)提供</a>
+      <label style="width: 100%;text-align: right;padding-right: 34px;box-sizing: border-box;">
+        <a href="https://bbs.iobroker.cn/thread-195-1-1.html" target="_blank">Hand-to-hand graphic tutorial (ioBroker China|Smart Home) provided</a>
       </label>
     </div>
   </script>
   <script type="text/x-red" data-help-name="ezviz-configurator">
-    <p>百度配置节点</p>
-    <p>和iobroker开发者一起聊天，快来加入吧</p>
+    <p>Baidu configuration node</p>
+    <p>Chat with iobroker developers, come and join</p>
     <img src="https://i.loli.net/2018/12/28/5c25b8bf1e78d.jpg"/>
   </script>
