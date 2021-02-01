@@ -1,6 +1,6 @@
 root = true
 
-# 对所有文件生效
+# Effective for all documents
 [*]
 charset = utf-8
 indent_style = space
@@ -9,6 +9,6 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# 对后缀名为 md 的文件生效
+# Take effect for files with the suffix md
 [*.md]
 trim_trailing_whitespace = false
