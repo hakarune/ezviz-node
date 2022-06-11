@@ -1,3 +1,3 @@
-# smarthomefans-nodes
+node developed by the smarthomefans team and translated by ___________
 
-后续由`smarthomefans`团队开发的`node-red`节点都会放在此处。
+To install:
