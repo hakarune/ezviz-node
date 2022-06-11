@@ -12,4 +12,5 @@ node developed by the smarthomefans team and translated by ___________
 ```
 
 
-To install:
+# To install:
+`npm i https://github.com/hakarune/ezviz-node.git`
